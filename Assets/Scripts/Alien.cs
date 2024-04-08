@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
-    public float MAX_HEALTH = 15f; 
+    public float MAX_HEALTH = 12f; 
     public float DAMAGE_THRESHOLD = 1f;
 
     private float current_health;

@@ -1,30 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class Bomb2D : MonoBehaviour
 {
     public float fieldofImpact;
     public float force;
+    public float eplosion_threshold = 3f;
     public LayerMask LayerToHit;
     public GameObject ExplosionEffect;
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioClip;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
-            explode();
-        }
+
     }
-
+ 
     void explode() {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioClip;
+        audioSource.Play();
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldofImpact, LayerToHit);
-
+        
         foreach(Collider2D obj in objects) {
             Vector2 direction = obj.transform.position - transform.position;
 
@@ -39,6 +46,13 @@ public class Bomb2D : MonoBehaviour
     void OnDrawGizmosSelected(){
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, fieldofImpact);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        float impactVelocity = collision.relativeVelocity.magnitude;
+        if (impactVelocity >= eplosion_threshold){
+            explode();
+        }
     }
 
 
