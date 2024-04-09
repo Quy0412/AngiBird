@@ -23,6 +23,7 @@ public class Alien : MonoBehaviour
     void Update()
     {
         if (current_health<=0f) {
+            GameManager.instances.removeAlien(this);
             Destroy(gameObject);
         }
     }
