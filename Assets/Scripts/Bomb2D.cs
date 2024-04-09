@@ -39,7 +39,7 @@ public class Bomb2D : MonoBehaviour
         }
 
         GameObject ExplosionEffectIns = Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
-        Destroy(ExplosionEffect, 10);
+        Destroy(ExplosionEffectIns, 10);
         Destroy(gameObject);
     }
 

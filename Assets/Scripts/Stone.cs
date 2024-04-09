@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glass : MonoBehaviour
+public class Stone : MonoBehaviour
 {
-    public float MAX_HEALTH = 10f; 
+    public float MAX_HEALTH = 40f; 
     public float DAMAGE_THRESHOLD = 1f;
 
     private float current_health;
