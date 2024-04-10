@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _star2;
     [SerializeField] private GameObject _star3;
 
-     [SerializeField] private int No_Alien;
+    [SerializeField] private int No_Alien;
+
+    [SerializeField] private GameObject _WinScene;
 
 
     private List<Alien> _aliens = new List<Alien>();
@@ -55,7 +57,8 @@ public class GameManager : MonoBehaviour
     #region Win/Lose
 
     private void WinGame(){
-        _restartScreenObject.SetActive(true);
+        // _restartScreenObject.SetActive(true);
+        _WinScene.SetActive(true);
     }
 
     public void RestartGame(){
