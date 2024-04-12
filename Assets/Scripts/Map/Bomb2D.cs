@@ -16,8 +16,8 @@ public class Bomb2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
+        // audioSource = GetComponent<AudioSource>();
+        // audioSource.clip = audioClip;
     }
 
     // Update is called once per frame
@@ -25,11 +25,18 @@ public class Bomb2D : MonoBehaviour
     {
 
     }
- 
-    void explode() {
-        audioSource = GetComponent<AudioSource>();
+
+    void boom(){
+        
+        // audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip;
         audioSource.Play();
+        Debug.Log("booooooom");
+    }
+ 
+    void explode() {
+        boom();
+
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldofImpact, LayerToHit);
         
         foreach(Collider2D obj in objects) {

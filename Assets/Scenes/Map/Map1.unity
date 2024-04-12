@@ -1402,7 +1402,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   ExplosionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 411259468}
   audioClip: {fileID: 8300000, guid: e59bb6d3aee014f75a1abbee0388da16, type: 3}
 --- !u!58 &411259471
 CircleCollider2D:
@@ -2041,7 +2041,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   ExplosionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 522729619}
   audioClip: {fileID: 8300000, guid: e59bb6d3aee014f75a1abbee0388da16, type: 3}
 --- !u!58 &522729622
 CircleCollider2D:
@@ -5278,7 +5278,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   ExplosionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1398606291}
   audioClip: {fileID: 8300000, guid: e59bb6d3aee014f75a1abbee0388da16, type: 3}
 --- !u!58 &1398606294
 CircleCollider2D:
@@ -5887,7 +5887,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   ExplosionEffect: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1645844833}
   audioClip: {fileID: 8300000, guid: e59bb6d3aee014f75a1abbee0388da16, type: 3}
 --- !u!58 &1645844836
 CircleCollider2D:
