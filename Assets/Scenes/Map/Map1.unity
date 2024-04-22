@@ -152,6 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 699343242}
   - {fileID: 1095205229}
   - {fileID: 1294464753}
   - {fileID: 827841538}
@@ -2544,7 +2545,6 @@ Transform:
   - {fileID: 1070906108}
   - {fileID: 717223787}
   - {fileID: 624337971}
-  - {fileID: 699343242}
   - {fileID: 2026743393}
   - {fileID: 1447766448}
   - {fileID: 1660804364}
@@ -2833,7 +2833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 596832770}
+  m_Father: {fileID: 33879039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &699343243
 MonoBehaviour:
@@ -2847,8 +2847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0d3a8c87cf04bac8367cf7b838e8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HEALTH: 20
-  DAMAGE_THRESHOLD: 2
+  MAX_HEALTH: 12
+  DAMAGE_THRESHOLD: 1
 --- !u!58 &699343244
 CircleCollider2D:
   m_ObjectHideFlags: 0
