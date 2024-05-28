@@ -22,15 +22,17 @@ public class Stone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (current_health<=0f) {
-            Destroy(gameObject);
-        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
         float impactVelocity = collision.relativeVelocity.magnitude;
         if (impactVelocity >= DAMAGE_THRESHOLD){
             Damage(impactVelocity);
+        }
+        if (current_health<=0f) {
+            Destroy(gameObject);
+            ScoreScript.scoreValue += 50;
         }
     }
 }

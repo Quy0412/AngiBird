@@ -31,7 +31,8 @@ public class Bomb2D : MonoBehaviour
         // audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip;
         audioSource.Play();
-        Debug.Log("booooooom");
+        ScoreScript.scoreValue += 50;
+        // Debug.Log("booooooom");
     }
  
     void explode() {
