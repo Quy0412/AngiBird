@@ -5,17 +5,17 @@ using UnityEngine.EventSystems;
 
 public class AmmoMechaism : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private CircleCollider2D circleCollider;
+    protected Rigidbody2D rb;
+    protected CircleCollider2D circleCollider;
 
-    private EventTrigger eventTrigger;
-    private SpriteRenderer spriteRenderer;
+    protected EventTrigger eventTrigger;
+    protected SpriteRenderer spriteRenderer;
 
-    private bool isPowered = false;
-    private bool isShooted;
-    private bool shouldFaceVelDirection;
+    protected bool isPowered = false;
+    protected bool isShooted;
+    protected bool shouldFaceVelDirection;
 
-    private void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
@@ -24,14 +24,14 @@ public class AmmoMechaism : MonoBehaviour
         spriteRenderer.drawMode = SpriteDrawMode.Sliced;
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {   if (isShooted && shouldFaceVelDirection)
         {
             transform.right = rb.velocity;
         }    
             
     }
-    private void Start()
+    protected void Start()
     {
         rb.isKinematic = true;
         circleCollider.enabled = false;
@@ -49,12 +49,12 @@ public class AmmoMechaism : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         shouldFaceVelDirection = false;
     }
 
-    private void OnMouseDown()
+    protected void OnMouseDown()
     {
         if (isPowered == false){
             PowerUp();
@@ -62,9 +62,8 @@ public class AmmoMechaism : MonoBehaviour
         }
     }
 
-    private void PowerUp()
+    public virtual void PowerUp()
     {
-        circleCollider.radius = 1.5f;
-        spriteRenderer.size = new Vector2(3, 3);
+
     }
 }
