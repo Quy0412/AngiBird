@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _star2;
     [SerializeField] private GameObject _star3;
 
+    [SerializeField] private GameObject ScoreText;
+
     [SerializeField] private int No_Alien;
 
     [SerializeField] private GameObject _WinScene;
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
     public void removeAlien(Alien alien){
         _aliens.Remove(alien);
         float percent = (float)_aliens.Count / No_Alien;
-        Debug.Log(_aliens.Count);
+        // Debug.Log(_aliens.Count);
         if (percent < 0.9 && percent >= 0.7){
                AppearStar1();
         } else if(percent >= 0.3 && percent <= 0.5){
