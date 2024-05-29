@@ -8,6 +8,7 @@ public class AmmoMechaism : MonoBehaviour
     protected Rigidbody2D rb;
     protected CircleCollider2D circleCollider;
 
+
     protected EventTrigger eventTrigger;
     protected SpriteRenderer spriteRenderer;
 
@@ -15,13 +16,11 @@ public class AmmoMechaism : MonoBehaviour
     protected bool isShooted;
     protected bool shouldFaceVelDirection;
 
+
     protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
-        eventTrigger =  GetComponent<EventTrigger>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.drawMode = SpriteDrawMode.Sliced;
     }
 
     protected void FixedUpdate()
