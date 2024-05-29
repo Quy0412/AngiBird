@@ -70,14 +70,22 @@ public class SlingShotHandler : MonoBehaviour
 
         if (Mouse.current.leftButton.wasReleasedThisFrame && ammoOnSlingShot)
         {
-            clickWithinArea = false;
+            if (GameManager.instances.HasEnoughAmmos())
+            {
+                clickWithinArea = false;
 
-            spawnedAmmo.ShootAmmo(direction, shotForce);
+                spawnedAmmo.ShootAmmo(direction, shotForce);
 
-            ammoOnSlingShot = false;
-            SetLines(centerPosition.position);
+                GameManager.instances.UseAmmo();
 
-            StartCoroutine(SpawnAmmoAfterTime());
+                ammoOnSlingShot = false;
+                SetLines(centerPosition.position);
+
+                if (GameManager.instances.HasEnoughAmmos())
+                {
+                StartCoroutine(SpawnAmmoAfterTime());
+                }
+            }
         }
 
 
