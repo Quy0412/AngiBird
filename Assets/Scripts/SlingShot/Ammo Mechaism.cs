@@ -5,27 +5,32 @@ using UnityEngine.EventSystems;
 
 public class AmmoMechaism : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private CircleCollider2D circleCollider;
+    protected Rigidbody2D rb;
+    protected CircleCollider2D circleCollider;
 
-    private bool isPowered = false;
-    private bool isShooted;
-    private bool shouldFaceVelDirection;
 
-    private void Awake()
+    protected EventTrigger eventTrigger;
+    protected SpriteRenderer spriteRenderer;
+
+    protected bool isPowered = false;
+    protected bool isShooted;
+    protected bool shouldFaceVelDirection;
+
+
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {   if (isShooted && shouldFaceVelDirection)
         {
             transform.right = rb.velocity;
         }    
             
     }
-    private void Start()
+    protected void Start()
     {
         rb.isKinematic = true;
         circleCollider.enabled = false;
@@ -43,8 +48,21 @@ public class AmmoMechaism : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         shouldFaceVelDirection = false;
+    }
+
+    protected void OnMouseDown()
+    {
+        if (isPowered == false){
+            PowerUp();
+            isPowered = true;
+        }
+    }
+
+    public virtual void PowerUp()
+    {
+
     }
 }

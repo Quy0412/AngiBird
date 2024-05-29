@@ -7225,7 +7225,7 @@ MonoBehaviour:
   maxDistance: 1.5
   shotForce: 10
   slingShotArea: {fileID: 79508991}
-  ammoPrefab: {fileID: 857623370451572515, guid: cd60d009af5d9fa4382c447ab5b2aa36, type: 3}
+  ammoPrefab: {fileID: 3637293397367621495, guid: ebb3f95e07e4f485dbbcd7db6a1f299a, type: 3}
   AmmoPosOffset: 0.22
   TimeBetweenAmmoRespawn: 2
 --- !u!1 &1666607810
