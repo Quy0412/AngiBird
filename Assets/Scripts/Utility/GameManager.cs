@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instances;
+
+    public int MaxNumberOfAmmos = 3;
+    private int _usedNumberOfAmmos;
+
     [SerializeField] private float _secondsToWaitBeforeDeathCheck = 3f;
     [SerializeField] private GameObject _restartScreenObject;
     [SerializeField] private GameObject _star1;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
             instances = this;
         }
 
+        // Get number of enemies
         Alien[] aliens = FindObjectsOfType<Alien>();
         for (int i =0; i < aliens.Length; i++){
             _aliens.Add(aliens[i]);
@@ -35,6 +40,26 @@ public class GameManager : MonoBehaviour
         No_Alien = aliens.Length;
     }
 
+    #region AmmoSettings
+    public void UseAmmo()
+    {
+        _usedNumberOfAmmos++;
+    }
+
+    public bool HasEnoughAmmos()
+    {
+        if (_usedNumberOfAmmos < MaxNumberOfAmmos)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    #endregion
+
+    #region CheckAlien
     public void removeAlien(Alien alien){
         _aliens.Remove(alien);
         float percent = (float)_aliens.Count / No_Alien;
@@ -55,6 +80,7 @@ public class GameManager : MonoBehaviour
             WinGame();
         }
     }
+    #endregion
 
     #region Win/Lose
 
