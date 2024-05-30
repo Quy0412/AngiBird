@@ -12,17 +12,20 @@ public class GameManager : MonoBehaviour
     public int MaxNumberOfAmmos = 3;
     private int _usedNumberOfAmmos;
 
+    private IconHandler _iconHandler;
+
     [SerializeField] private float _secondsToWaitBeforeDeathCheck = 3f;
     [SerializeField] private GameObject _restartScreenObject;
     [SerializeField] private GameObject _star1;
     [SerializeField] private GameObject _star2;
     [SerializeField] private GameObject _star3;
 
-    [SerializeField] private GameObject ScoreText;
+    // [SerializeField] private GameObject ScoreText;
 
     [SerializeField] private int No_Alien;
 
     [SerializeField] private GameObject _WinScene;
+    [SerializeField] private GameObject _LoseScene;
 
 
     private List<Alien> _aliens = new List<Alien>();
@@ -31,6 +34,8 @@ public class GameManager : MonoBehaviour
         if (instances == null){
             instances = this;
         }
+
+        _iconHandler = GameObject.FindObjectOfType<IconHandler>();
 
         // Get number of enemies
         Alien[] aliens = FindObjectsOfType<Alien>();
@@ -44,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void UseAmmo()
     {
         _usedNumberOfAmmos++;
+        _iconHandler.UseAmmo(_usedNumberOfAmmos);
     }
 
     public bool HasEnoughAmmos()
@@ -76,8 +82,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void CheckForAllALiens(){
+        Debug.Log(_usedNumberOfAmmos);
         if (_aliens.Count == 0){
+            ScoreScript.scoreValue += 1000 * (MaxNumberOfAmmos - _usedNumberOfAmmos);
             WinGame();
+        } else {
+            if (_usedNumberOfAmmos >= MaxNumberOfAmmos) {
+                LoseGame();
+            }
         }
     }
     #endregion
@@ -86,7 +98,14 @@ public class GameManager : MonoBehaviour
 
     private void WinGame(){
         // _restartScreenObject.SetActive(true);
+        Time.timeScale = 0;
         _WinScene.SetActive(true);
+    }
+
+    private void LoseGame(){
+        // _restartScreenObject.SetActive(true);
+        Time.timeScale = 0;
+        _LoseScene.SetActive(true);
     }
 
     public void RestartGame(){
