@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     {
         _usedNumberOfAmmos++;
         _iconHandler.UseAmmo(_usedNumberOfAmmos);
+
+        CheckForLastAmmo();
     }
 
     public bool HasEnoughAmmos()
@@ -64,7 +66,18 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+    public void CheckForLastAmmo()
+    {
+        if (_usedNumberOfAmmos == MaxNumberOfAmmos)
+        {
+            StartCoroutine(CheckAfterWaitTime());
+        }
+    }
+    private IEnumerator CheckAfterWaitTime()
+    {
+        yield return new WaitForSeconds(_secondsToWaitBeforeDeathCheck);
 
+    }
     #region CheckAlien
     public void removeAlien(Alien alien){
         _aliens.Remove(alien);
